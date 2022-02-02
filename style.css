@@ -1,6 +1,6 @@
 .sketchWrapper{
   width: 500px;
-  height: 460px;
+  height: auto;
   border-radius: 6px;
   background-color: rgb(170, 168, 166);
   display: flex;
@@ -19,7 +19,13 @@
   display: grid;
 }
 
-#draw{
+#drawBlack{
+  margin: 8px;
+  border-radius: 8px;
+  border: solid rgba(255, 255, 255, 0);
+}
+
+#drawColor {
   margin: 8px;
   border-radius: 8px;
   border: solid rgba(255, 255, 255, 0);
