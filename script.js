@@ -2,12 +2,9 @@
 const sketchContainer = document.querySelector('.sketchContainer');
 sketchContainer.classList.add('sketchContainer');
 
-//Storing prompt for gridSize
-gridSize =  ''
 
 
-
-//creates a grid with calles & specified dimensions when called
+//creates a grid with cells & specified dimensions when called
 function createCells(columns, rows){
 
   for (let i = 0; i < (columns * rows); i++){
@@ -20,24 +17,19 @@ function createCells(columns, rows){
     sketchContainer.style.gridTemplateRows = `repeat(${rows}, 20px)`;
   }
 }
-createCells(20, 20);
+createCells(16, 16);
 
-function generateRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
 
-let randomColor = generateRandomColor();
+//creates random number to correspond with rgb 
+let r = () => Math.random() * 256 >> 0;
 
+
+//colors w/ random color whenever mouseover
 function colorRandom(){
   const pixels = document.querySelectorAll(`.gridCell`)
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseover', () => {
-      pixel.style.backgroundColor = randomColor;
+      pixel.style.backgroundColor = `rgb(${r()}, ${r()}, ${r()})`;
     });
   });
 }
@@ -68,5 +60,25 @@ buttons.forEach((button) => {
       colorRandom();
     }
   })
+});
+
+//Invokes createCells based on dropdown Selection
+const gridSize = document.getElementById('gridSize');
+gridSize.addEventListener('change', () => {
+  if (gridSize.value == '16X16'){
+    createCells(16, 16);
+  }
+  else if (gridSize.value == '17X17'){
+    createCells(17, 17);
+  }
+  else if (gridSize.value == '18X18'){
+    createCells(18, 18);
+  }
+  else if (gridSize.value == '19X19'){
+    createCells(19, 19);
+  }
+  else {
+    createCells(20, 20);
+  }
 });
 
