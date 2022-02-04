@@ -1,5 +1,5 @@
 .sketchWrapper{
-  width: 500px;
+  width: 550px;
   height: auto;
   border-radius: 6px;
   background-color: rgb(170, 168, 166);
@@ -18,6 +18,19 @@
   background-color: white;
   display: grid;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#gridSize {
+  margin: 8px;
+  border-radius: 8px;
+  border: solid rgba(255, 255, 255, 0);
+}
+
 
 #drawBlack{
   margin: 8px;
